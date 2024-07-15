@@ -1,5 +1,6 @@
-import { ArchiveButton } from './ArchiveButton.jsx'
-import { CallCard } from './CallCard.jsx'
+import { ArchiveButton } from '../ArchiveButton/ArchiveButton.jsx'
+import { CallCard } from '../CallCard/CallCard.jsx'
+import styles from './index.module.css'
 
 export const CallsList = ({
   calls,
@@ -8,9 +9,9 @@ export const CallsList = ({
   buttonLabel,
 }) => {
   return (
-    <section className="calls-list">
+    <section className={styles.calls_list}>
       {!calls.length ? (
-        <div className="no-calls">You have no calls</div>
+        <div className={styles.no_calls}>You have no calls</div>
       ) : (
         <>
           <ArchiveButton onClick={onButtonClick}>{buttonLabel}</ArchiveButton>

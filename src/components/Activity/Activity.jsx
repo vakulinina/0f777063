@@ -1,7 +1,7 @@
 import React from 'react'
-import { useCallData } from '../providers/CallProvider/CallProvider'
-import { withLoader } from './HOC/withLoader.jsx'
-import { CallsList } from './CallsList.jsx'
+import { useCallData } from '../../providers/CallProvider/CallProvider.js'
+import { withLoader } from '../HOC/withLoader.jsx'
+import { CallsList } from '../CallsList/CallsList.jsx'
 
 const ActivityContent = () => {
   const {

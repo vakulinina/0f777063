@@ -1,11 +1,12 @@
 import React from 'react'
-import { useCallData } from '../providers/CallProvider/CallProvider'
-import closeIcon from '../images/back-icon.svg'
-import avatar from '../images/avatar.svg'
-import { PHONE_NUMBERS } from '../constants/index.js'
-import { formatDateTime } from '../helpers'
-import { ArchiveButton } from './ArchiveButton.jsx'
-import { formatDuration } from '../helpers'
+import { useCallData } from '../../providers/CallProvider/CallProvider.js'
+import closeIcon from './images/back-icon.svg'
+import avatar from './images/avatar.svg'
+import { PHONE_NUMBERS } from '../../constants'
+import { formatDateTime } from '../../helpers'
+import { ArchiveButton } from '../ArchiveButton/ArchiveButton.jsx'
+import { formatDuration } from '../../helpers/index.js'
+import styles from './index.module.css'
 
 export const CallDetail = () => {
   const {
@@ -17,7 +18,7 @@ export const CallDetail = () => {
     return null
   }
 
-  const { duration, call_type, from, to, created_at, is_archived, direction } =
+  const { duration, from, to, created_at, is_archived, direction } =
     selectedCall
 
   const handleCloseClick = React.useCallback(() => {
@@ -39,30 +40,30 @@ export const CallDetail = () => {
   )
 
   return (
-    <aside className="call-detail-drawer" data-open={isCallDetailOpen}>
-      <button onClick={handleCloseClick} className="close-button">
+    <aside className={styles.call_detail_drawer} data-open={isCallDetailOpen}>
+      <button onClick={handleCloseClick} className={styles.close_button}>
         <img src={closeIcon} width="100%" />
       </button>
 
-      <div className="avatar">
+      <div className={styles.avatar}>
         <img src={avatar} alt="" width={80} />
       </div>
 
-      <p className="call-number">
+      <p className={styles.call_number}>
         {direction === 'inbound'
           ? `${PHONE_NUMBERS[from] || from}`
           : `${PHONE_NUMBERS[to]}` || to}
       </p>
 
-      <div className="call-detail-info">
-        <p className="call-detail-date">{date}</p>
+      <div className={styles.call_detail_info}>
+        <p className={styles.call_detail_date}>{date}</p>
         <div className="">
           <div>
             <p>{time}</p>
           </div>
-          <div className="call-detail-column">
+          <div className={styles.call_detail_column}>
             <p>{`${direction} Call`}</p>
-            <p className="call-duration">{formattedDuration}</p>
+            <p className={styles.call_duration}>{formattedDuration}</p>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { useCallData } from '../../providers/CallProvider/CallProvider'
-import { Loader } from '../Loader.jsx'
+import { Loader } from '../Loader/Loader.jsx'
 
 export const withLoader = (Component) => {
   return (props) => {

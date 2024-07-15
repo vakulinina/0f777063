@@ -1,6 +1,6 @@
 import React from 'react'
-import { Archived } from './Archived.jsx'
-import { Activity } from './Activity.jsx'
+import { Archived } from '../Archived/Archived.jsx'
+import { Activity } from '../Activity/Activity.jsx'
 import { Route, Routes } from 'react-router-dom'
 
 export const Calls = () => {

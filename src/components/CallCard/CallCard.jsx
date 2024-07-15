@@ -1,8 +1,9 @@
 import React from 'react'
-import incomingCall from '../images/incoming-call.svg'
-import outcomingCall from '../images/outcoming-call.svg'
-import { formatDateTime } from '../helpers'
-import { PHONE_NUMBERS } from '../constants'
+import incomingCall from './images/incoming-call.svg'
+import outcomingCall from './images/outcoming-call.svg'
+import { formatDateTime } from '../../helpers'
+import { PHONE_NUMBERS } from '../../constants'
+import styles from './index.module.css'
 
 const ICONS = {
   inbound: incomingCall,
@@ -32,18 +33,18 @@ export const CallCard = ({
   )
 
   return (
-    <div className="call-card" onClick={onClick}>
+    <div className={styles.call_card} onClick={onClick}>
       <div
-        className="icon-container"
+        className={styles.icon_container}
         data-type={isInbound ? call_type : direction}
       >
         <img width={20} src={ICONS[direction]}></img>
       </div>
-      <div className="call-info">
-        <p className="call-number">{isInbound ? fromNum : toNum}</p>
-        <p className="call-type">{isInbound ? call_type : direction}</p>
+      <div className={styles.call_info}>
+        <p className={styles.call_number}>{isInbound ? fromNum : toNum}</p>
+        <p className={styles.call_type}>{isInbound ? call_type : direction}</p>
       </div>
-      <div className="call-card-date">
+      <div className={styles.call_card_date}>
         <span>{isToday ? time : date}</span>
       </div>
     </div>

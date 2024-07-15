@@ -1,5 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import styles from './index.module.css'
+import cx from 'classnames'
 
 const TABS = [
   { id: 'activity', url: '/', label: 'Activity' },
@@ -12,9 +14,15 @@ const TABS = [
 
 export const TabBox = () => {
   return (
-    <div className="tab-box">
+    <div className={styles.tabs}>
       {TABS.map(({ id, url, label }) => (
-        <NavLink to={url} className="nav-link" key={id}>
+        <NavLink
+          to={url}
+          key={id}
+          className={({ isActive }) =>
+            cx(styles.navlink, isActive && styles.active)
+          }
+        >
           {label}
         </NavLink>
       ))}
