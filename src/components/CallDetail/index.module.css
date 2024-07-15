@@ -13,7 +13,7 @@
   padding: 16px;
   visibility: hidden;
   background: #fff;
-  box-shadow: -20px 0 40px rgba(156, 169, 218, 0.15);
+  box-shadow: -20px 0 40px rgba(205, 206, 207, 0.15);
   transform: translateX(110%);
   transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) all;
 }
@@ -34,10 +34,14 @@
 }
 
 .avatar {
-  box-shadow: 0px 8px 20px rgba(156, 169, 218, 0.15);
+  box-shadow: 0px 8px 20px rgba(205, 206, 207, 0.3);
   border-radius: 10px;
   margin-bottom: 30px;
   background-color: #dedede;
+}
+
+.call_number {
+  font-weight: 600;
 }
 
 .call_detail_info {
