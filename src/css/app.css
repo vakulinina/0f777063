@@ -10,16 +10,235 @@
 }
 
 #app .container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
   width: 376px;
   height: 666px;
   z-index: 100;
+  position: relative;
 
   background: white;
   border-radius: 3px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .9);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.9);
+  overflow: hidden;
 }
 
 #app .container-view {
   padding: 20px;
 }
 
+/* Tab Box */
+.tab-box {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px 8px;
+}
+
+.nav-link {
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 8px;
+  color: #000;
+}
+
+.nav-link.active {
+  border-bottom: 4px solid #000;
+}
+
+/* Calls List */
+
+.calls-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  padding: 12px 20px 20px;
+  overflow-y: scroll;
+}
+
+.no-calls {
+  color: #b8b6b4;
+}
+
+/* Loader */
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.loader-container div {
+  width: 80px;
+}
+
+/* Call card */
+
+.call-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.call-card:hover {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 20px rgba(156, 169, 218, 0.15);
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.call-card-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+}
+
+.call-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 auto 0 0;
+}
+
+.call-number {
+  font-weight: 600;
+}
+
+.call-type {
+  font-size: 12px;
+  text-transform: capitalize;
+  color: #b8b6b4;
+}
+
+.call-card-date {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #b8b6b4;
+  font-size: 10px;
+}
+
+.icon-container {
+  padding: 15px;
+  border-radius: 16px;
+  background-color: #e75a7c;
+  box-shadow: 0px 8px 20px rgba(156, 169, 218, 0.15);
+}
+
+.icon-container[data-type='answered'] {
+  padding: 15px;
+  border-radius: 16px;
+  background-color: #fab3a0;
+}
+
+.icon-container[data-type='outbound'] {
+  padding: 15px;
+  border-radius: 16px;
+  background-color: #7accbe;
+}
+
+/* Button */
+
+.archive-button {
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #b8b6b4;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.archive-button[data-disabled='true'] {
+  border: 1px solid #cdcccb;
+  color: #b8b6b4;
+  pointer-events: none;
+}
+
+/* Call Detail Drawer */
+
+.call-detail-drawer {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: -20px 0 40px rgba(156, 169, 218, 0.15);
+  transform: translateX(110%);
+  transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) all;
+}
+
+.call-detail-drawer[data-open='true'] {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.close-button {
+  align-self: flex-start;
+  border: none;
+  background: none;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.avatar {
+  box-shadow: 0px 8px 20px rgba(156, 169, 218, 0.15);
+  border-radius: 10px;
+  margin-bottom: 30px;
+  background-color: #dedede;
+}
+
+.call-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 260px;
+  width: 100%;
+}
+
+.call-detail-info div {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.call-detail-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-transform: capitalize;
+}
+
+.call-duration {
+  font-size: 12px;
+  color: #b8b6b4;
+  text-transform: none;
+}
